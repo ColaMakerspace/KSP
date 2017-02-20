@@ -29,6 +29,7 @@ until ship:obt:apoapsis > 80000 {
 	if MAXTHRUST = 0 {
 		stage.
 	}
+	print "apoapsis: " +  ship:obt:apoapsis.
 }
 
 until ship:obt:periapsis > 70000{
@@ -36,6 +37,7 @@ until ship:obt:periapsis > 70000{
 	if MAXTHRUST = 0 {
 		stage.
 	}
+	print "periapsis: " +  ship:obt:periapsis.
 }
 
 AG1 on.
