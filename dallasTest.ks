@@ -103,6 +103,7 @@ print "Deploying solar array.".
 AG1 on.
 print "Dropping secondary engine.".
 stage.
+wait 1.
 print "Warping to periapsis...".
 
 set timeToPeri to ETA:PERIAPSIS.
@@ -128,6 +129,7 @@ lock throttle to 0.
 print "Apoapsis is high enough.".
 
 print " ".
+wait 1.
 print "Warping to apoapsis...".
 
 set timeToApo to ETA:APOAPSIS.
