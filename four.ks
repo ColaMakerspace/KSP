@@ -29,20 +29,21 @@ until ship:obt:apoapsis > 100000 {
 
 lock throttle to 0.
 print "Waiting for apoapsis.".
-until ETA:APOAPSIS < 10 {
+until ETA:APOAPSIS < 5 {
 	wait 0.5.
 }
 LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 lock throttle to 1.
 
 print "Buring to raise periapsis".
-until ship:obt:periapsis > 100000{
+until ship:obt:periapsis > 90000{
 	wait 0.5.
 	if MAXTHRUST = 0 {
 		stage.
 	}
 }
 
+stage.
 stage.
 stage.
 wait 1.
