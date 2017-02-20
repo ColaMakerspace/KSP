@@ -19,27 +19,34 @@ when ship:apoapsis > 80000 then {
 	LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 }
 
-when ship:obt:periapsis > 100000 and ship:obt:apoapsis > 100000 then {
-	lock throttle to 0.
-	shutdown.
-}
-
+print "Burning to raise apoapsis".
 until ship:obt:apoapsis > 100000 {
   wait 0.5.
 	if MAXTHRUST = 0 {
 		stage.
 	}
-	print "apoapsis: " +  ship:obt:apoapsis.
 }
 
+lock throttle to 0.
+print "Waiting for apoapsis.".
+until ETA:APOAPSIS < 10 {
+	wait 0.5.
+}
+LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
+lock throttle to 1.
+
+print "Buring to raise periapsis".
 until ship:obt:periapsis > 100000{
 	wait 0.5.
 	if MAXTHRUST = 0 {
 		stage.
 	}
-	print "periapsis: " +  ship:obt:periapsis.
 }
 
+stage.
+stage.
+wait 1.
 AG1 on.
+lock throttle to 0.
 
 
