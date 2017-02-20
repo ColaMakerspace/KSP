@@ -87,13 +87,10 @@ print "Igniting secondary engine.".
 stage.
 
 print "Waiting for stable orbit.".
-until ship:obt:eccentricity > -0.01 and ship:obt:eccentricity < 0.01 {
-    CLEARSCREEN.
-    print "Orbital eccentricity: " + ROUND(ship:obt:eccentricity, 2).
+until ship:obt:apoapsis > 75000 and ship:obt:periapsis > 75000 {
     wait 0.1.
 }
-
-print "Orbital eccentricity near 0. Stable orbit achieved.".
+print "Apo and Peri above 75km. Orbit achieved.".
 lock throttle to 0.
 
 print "".
@@ -110,15 +107,14 @@ print "Warping to periapsis...".
 set timeToPeri to ETA:PERIAPSIS.
 kuniverse:timewarp:warpto(time:seconds + (timeToPeri - 10)).
 print "".
+lock steering to HEADING(90, 0).
 until ETA:PERIAPSIS < 1 {
     wait 1.
 }
 
 print "Boosting apoapsis...".
-lock steering to HEADING(90, 0).
 stage.
 lock throttle to 0.1.
-
 until ship:obt:apoapsis > desiredAltitude {
     wait 0.5.
 }
@@ -130,12 +126,12 @@ print "Warping to apoapsis...".
 
 set timeToApo to ETA:APOAPSIS.
 kuniverse:timewarp:warpto(time:seconds + (timeToApo - 10)).
+lock steering to HEADING(90, 0).
 until ETA:APOAPSIS < 1 {
     wait 1.
 }
 
 print "Boosting periapsis...".
-lock steering to HEADING(90, 0).
 lock throttle to 0.1.
 until ship:obt:periapsis > desiredAltitude {
     wait 0.5.
