@@ -26,7 +26,7 @@ when Orbit:periapsis > 70000 then {
 
 until Orbit:apoapsis > 80000 {
   wait 0.5.
-	if thrust = 0 {
+	if MAXTHRUST = 0 {
 		stage.
 	}
 }
