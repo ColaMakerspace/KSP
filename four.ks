@@ -48,33 +48,29 @@ lock throttle to 0.
 until ETA:periapsis < 10 {
 	wait 0.5.
 }
-lock throttle to 1.
+lock throttle to 0.5.
 LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 until ship:obt:apoapsis > 2863330 {
-	wait 0.1.
+	wait 0.01.
 	if MAXTHRUST = 0 {
 		stage.
 	}
 }
 lock throttle to 0.
+stage.
+AG1 on.
 until ETA:apoapsis < 3 {
 	wait 0.1.
 }
-lock throttle to 0.5.
+lock throttle to 0.1.
 LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 until ship:obt:periapsis > 2863330 {
-	wait 0.1.
+	wait 0.01.
 	if MAXTHRUST = 0 {
 		stage.
 	}
 }
 lock throttle to 0.
 print "Desired orbit found".
-stage.
-stage.
-stage.
-wait 1.
-AG1 on.
-lock throttle to 0.
 
 
