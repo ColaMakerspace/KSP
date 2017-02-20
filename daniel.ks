@@ -5,11 +5,11 @@ lock steering to up + R(0,0,180).
 stage.
 print "Launch!".
 
-WHEN MAXTHRUST = 0 THEN {
-    WAIT 0.5.
-    PRINT "Staging".
-    STAGE.
-    PRESERVE.
+when maxthrust = 0 then {
+    wait 0.5.
+    print "Staging".
+    stage.
+    preserve.
 }.
 
 wait until altitude >10000.
