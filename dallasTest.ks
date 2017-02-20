@@ -78,11 +78,14 @@ print "Main engine cutoff.".
 print "Dropping main engine.".
 stage.
 wait 2.
+print "".
 print "Igniting secondary engine.".
 stage.
 
 print "Waiting for stable orbit.".
-until orbit:eccentricity > -0.1 and orbit:eccentricity < 0.1 {
+until ship:obt:eccentricity > -0.1 and ship:obt:eccentricity < 0.1 {
+    CLEARSCREEN.
+    print "Orbital eccentricity: " + ROUND(ship:obt:eccentricity, 2).
     wait 0.25.
 }
 
