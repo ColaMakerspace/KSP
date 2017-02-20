@@ -5,6 +5,13 @@ lock steering to up + R(0,0,180).
 stage.
 print "Launch!".
 
+when maxthrust = 0 then {
+    wait 0.5.
+    print "Staging".
+    stage.
+    preserve.
+}.
+
 wait until altitude >10000.
 lock steering to up + R(0,0,180) + R(0,-60,0).
 print "Beginning gravity turn.".
