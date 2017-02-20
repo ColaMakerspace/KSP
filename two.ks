@@ -12,4 +12,4 @@ until ship:maxthrust > 0 {
 	stage.
 }
 
-wait until ship:altitude > 70000000000000
+wait until ship:altitude > 70000000.
