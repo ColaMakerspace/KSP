@@ -20,7 +20,7 @@ when ship:altitude > 80000 then {
 }
 
 when Orbit:periapsis > 70000 then {
-	lock throttle 0.
+	lock throttle to 0.
 	shutdown.
 }
 
