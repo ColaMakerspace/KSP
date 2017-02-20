@@ -82,12 +82,19 @@ print "Igniting secondary engine.".
 stage.
 
 print "Waiting for stable orbit.".
-until ship:obt:apoapsis > 80000 and ship:obt:periapsis > 80000 {
-    wait 1.
+until orbit:eccentricity > -0.1 and orbit:eccentricity < 0.1 {
+    wait 0.25.
 }
 
-print "Apo and Peri both above 80km. Stable orbit achieved.".
+print "Orbital eccentricity near 0. Stable orbit achieved.".
+lock throttle to 0.
 
 print "".
 print "[Insert the rest of mission here]".
+
+print "Ejecting fairing.".
+wait 0.5.
+stage.
+wait 2.
+print "Deploying solar array.".
 AG1 on.
