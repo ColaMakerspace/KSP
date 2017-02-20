@@ -9,10 +9,14 @@ FROM {local countdown is 10.} UNTIL countdown = 0 STEP {SET countdown to countdo
 }
 
 WHEN MAXTHRUST = 0 THEN {
+    WAIT 0.5.
     PRINT "Staging".
     STAGE.
-    WAIT 1.
-    STAGE.
+    WAIT 1
+    IF MAXTHRUST = 0 THEN {
+        PRINT "Staging again.".
+        STAGE.
+    }
     PRESERVE.
 }.
 
