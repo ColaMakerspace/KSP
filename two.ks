@@ -13,4 +13,6 @@ when maxthrust = 0 then {
 	preserve.
 }.
 
+LOCK STEERING TO UP.
+
 wait until ship:altitude > 70000000.
