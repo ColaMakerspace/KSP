@@ -15,7 +15,7 @@ when ship:altitude > 10000 then {
 	LOCK STEERING TO R(0,0,-90) + HEADING(90,45).
 }
 
-when ship:altitude > 80000 then {
+when ship:apoapsis > 80000 then {
 	LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 }
 
@@ -33,5 +33,9 @@ until Orbit:apoapsis > 80000 {
 
 until Orbit:periapsis > 70000{
 	wait 0.5.
+	if MAXTHRUST = 0 {
+		stage.
+	}
 }
 
+AG1 on.
