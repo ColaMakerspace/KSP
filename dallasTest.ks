@@ -62,10 +62,11 @@ print "Throttling down main engine.".
 lock throttle to 0.
 
 print "Waiting until near apoapsis...".
-until ETA:APOAPSIS < 30 {
+until ETA:APOAPSIS < 10 {
     wait 1.
 }
 
+lock steering to HEADING(90, 0).
 print "Close to apoapsis. Reigniting main engine.".
 lock throttle to 1.
 
@@ -87,5 +88,6 @@ until ship:obt:apoapsis > 80000 and ship:obt:periapsis > 80000 {
 
 print "Apo and Peri both above 80km. Stable orbit achieved.".
 
-print "Insert the rest of mission here.".
+print "".
+print "[Insert the rest of mission here]".
 AG1 on.
