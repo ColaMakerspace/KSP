@@ -36,14 +36,14 @@ stage.
 wait 1.
 
 print "Initiating gravity turn.".
-set steeringWheel to HEADING(90, 65);
+set steeringWheel to HEADING(90, 65).
 
 until ship:altitude > 10000 {
     wait 1.
 }
 
 print "Turning harder.".
-set steeringWheel to HEADING(90, 45);
+set steeringWheel to HEADING(90, 45).
 
 until MAXTHRUST < 0.1 {
     wait 1.
