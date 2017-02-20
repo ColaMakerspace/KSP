@@ -26,7 +26,7 @@ until stage:solidfuel < 0.1 {
 print "SRB flameout detected.".
 print "Ejecting SRBs.".
 stage.
-wait 1.
+wait 2.
 
 set steeringWheel to HEADING(90, 90).
 lock steering to steeringWheel.
@@ -45,9 +45,47 @@ until ship:altitude > 10000 {
 print "Turning harder.".
 set steeringWheel to HEADING(90, 45).
 
+until ship:apoapsis > 65000 {
+    wait 1.
+}
+
+print "Turning wicked hard.".
+set steeringWheel to HEADING(90, 0).
+
+print "Waiting for apoapsis above 80km.".
+until ship:obt:apoapsis > 80000 {
+    wait 1.
+}
+
+print "Apoapsis of " + ROUND(ship:obt:apoapsis) + " detected.".
+print "Throttling down main engine.".
+lock throttle to 0.
+
+print "Waiting until near apoapsis...".
+until ETA:APOAPSIS < 30 {
+    wait 1.
+}
+
+print "Close to apoapsis. Reigniting main engine.".
+lock throttle to 1.
+
 until MAXTHRUST < 0.1 {
     wait 1.
 }
 
-print "Flameout detected. Staging.".
+print "Main engine cutoff.".
+print "Dropping main engine.".
 stage.
+wait 2.
+print "Igniting secondary engine.".
+stage.
+
+print "Waiting for stable orbit.".
+until ship:obt:apoapsis > 80000 and ship:obt:periapsis > 80000 {
+    wait 1.
+}
+
+print "Apo and Peri both above 80km. Stable orbit achieved.".
+
+print "Insert the rest of mission here.".
+AG1 on.
