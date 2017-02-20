@@ -1,0 +1,35 @@
+Name: Contract Configurator
+Purpose: Custom contracts
+Link: https://github.com/jrossignol/ContractConfigurator/releases/tag/1.22.2
+GameData: ContractConfigurator, ContractPacks
+
+Name: KOS
+Purpose: Software control of rockets
+Link: https://github.com/KSP-KOS/KOS/releases
+GameData: kOS, ModuleManager.2.7.5.dll
+
+Name: Environmental Visual Enhancements (EVE)
+Purpose: Clouds and better graphics
+Link: https://github.com/WazWaz/EnvironmentalVisualEnhancements/releases/tag/EVE-1.2-2
+GameData: EnvironmentalVisualEnhancements, BoulderCo
+
+Name: Hullcam VDS Continued
+Purpose: External Cameras
+Link: https://github.com/linuxgurugamer/HullcamVDSContinued/releases/tag/0.1.6
+GameData: HullCameraVDS, ModuleManager.2.7.4.dll
+
+Name: Telemachus
+Purpose: HTTP telemetry for ground control
+Link: https://github.com/KSP-Telemachus/Telemachus/releases/tag/v1.5.1
+GameData: Telemachus
+
+
+Name: RasterPropMonitor
+Purpose: Better IVAs and external cameras
+Link: https://github.com/Mihara/RasterPropMonitor/releases/tag/v0.28.0
+GameData: JSI
+
+Name: Action Groups Extended
+Purpose: Gives KOS 250 action groups and script hooks
+Link: https://github.com/SirDiazo/AGExt/releases/tag/2.2
+GameData: Diazo
