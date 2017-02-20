@@ -1,4 +1,4 @@
-set desiredPeriod to 10774.7.
+set desiredPeriod to 21549
 set desiredAltitude to 3463330.
 
 CLEARSCREEN.
