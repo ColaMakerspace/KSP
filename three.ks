@@ -6,6 +6,7 @@ from { local countdown is 10. } until countdown = 0 step {set countdown to count
 	print countdown .
 	wait 1.
 }
+stage.
 
 LIST ENGINES IN elist.
 UNTIL false {
