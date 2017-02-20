@@ -1,4 +1,5 @@
-set desiredAltitude to 1769645.29.
+set desiredPeriod to 10774.7.
+set desiredAltitude to 3463330.
 
 CLEARSCREEN.
 
@@ -113,14 +114,19 @@ until ETA:PERIAPSIS < 1 {
 }
 
 print "Boosting apoapsis...".
+set slowdownApo to desiredAltitude * 0.9.
 stage.
+lock throttle to 1.
+until ship:obt:apoapsis > slowdownApo {
+    wait 0.1.
+}
 lock throttle to 0.1.
 until ship:obt:apoapsis > desiredAltitude {
-    wait 0.5.
+    wait 0.1.
 }
-
 lock throttle to 0.
 print "Apoapsis is high enough.".
+
 print "".
 print "Warping to apoapsis...".
 
@@ -131,12 +137,18 @@ until ETA:APOAPSIS < 1 {
     wait 1.
 }
 
-print "Boosting periapsis...".
+print "Boosting orbital period to " + desiredPeriod + " seconds.".
+set slowdownPeriod to desiredPeriod * 0.9.
+lock throttle to 0.5.
+until ship:obt:period > slowdownPeriod {
+    wait 0.1.
+}
 lock throttle to 0.1.
-until ship:obt:periapsis > desiredAltitude {
-    wait 0.5.
+until ship:obt:period > desiredPeriod {
+    wait 0.1.
 }
 lock throttle to 0.
-print "Periapsis is high enough.".
-print "".
-print "The end?".
+
+print "Orbital period near " + desiredPeriod + " achieved.".
+print " ".
+print "The End?".
