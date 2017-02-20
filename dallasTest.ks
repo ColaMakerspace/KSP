@@ -33,7 +33,7 @@ wait 2.
 
 lock steering to HEADING(90, 90).
 
-print "".
+print " ".
 print "Igniting liquid engine.".
 stage.
 wait 1.
@@ -55,7 +55,7 @@ until ship:apoapsis > 65000 {
 print "Turning wicked hard.".
 lock steering to HEADING(90, 0).
 
-print "".
+print " ".
 print "Waiting for apoapsis above 80km.".
 until ship:obt:apoapsis > 80000 {
     wait 1.
@@ -71,7 +71,7 @@ until ETA:APOAPSIS < 10 {
 }
 
 lock steering to HEADING(90, 0).
-print "".
+print " ".
 print "Close to apoapsis. Reigniting main engine.".
 lock throttle to 1.
 
@@ -83,7 +83,7 @@ print "Main engine cutoff.".
 print "Dropping main engine.".
 stage.
 wait 2.
-print "".
+print " ".
 print "Igniting secondary engine.".
 stage.
 
@@ -94,7 +94,7 @@ until ship:obt:apoapsis > 75000 and ship:obt:periapsis > 75000 {
 print "Apo and Peri above 75km. Orbit achieved.".
 lock throttle to 0.
 
-print "".
+print " ".
 print "Ejecting fairing.".
 wait 0.5.
 stage.
@@ -107,7 +107,7 @@ print "Warping to periapsis...".
 
 set timeToPeri to ETA:PERIAPSIS.
 kuniverse:timewarp:warpto(time:seconds + (timeToPeri - 10)).
-print "".
+print " ".
 lock steering to HEADING(90, 0).
 until ETA:PERIAPSIS < 1 {
     wait 1.
@@ -127,7 +127,7 @@ until ship:obt:apoapsis > desiredAltitude {
 lock throttle to 0.
 print "Apoapsis is high enough.".
 
-print "".
+print " ".
 print "Warping to apoapsis...".
 
 set timeToApo to ETA:APOAPSIS.
