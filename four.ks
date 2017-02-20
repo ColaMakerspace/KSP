@@ -15,11 +15,11 @@ when ship:altitude > 10000 then {
 	LOCK STEERING TO R(0,0,-90) + HEADING(90,45).
 }
 
-when ship:altitude > 80000 {
+when ship:altitude > 80000 then {
 	LOCK STEERING TO R(0,0,-90) + HEADING(90,0).
 }
 
-when Orbit:periapsis > 70000 {
+when Orbit:periapsis > 70000 then {
 	lock throttle 0.
 	shutdown.
 }
