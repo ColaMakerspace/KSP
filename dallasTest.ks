@@ -28,29 +28,28 @@ print "Ejecting SRBs.".
 stage.
 wait 2.
 
-set steeringWheel to HEADING(90, 90).
-lock steering to steeringWheel.
+lock steering to HEADING(90, 90).
 
 print "Igniting liquid engine.".
 stage.
 wait 1.
 
 print "Initiating gravity turn.".
-set steeringWheel to HEADING(90, 65).
+lock steering to HEADING(90, 65).
 
 until ship:altitude > 10000 {
     wait 1.
 }
 
 print "Turning harder.".
-set steeringWheel to HEADING(90, 45).
+lock steering to HEADING(90, 45).
 
 until ship:apoapsis > 65000 {
     wait 1.
 }
 
 print "Turning wicked hard.".
-set steeringWheel to HEADING(90, 0).
+lock steering to HEADING(90, 0).
 
 print "Waiting for apoapsis above 80km.".
 until ship:obt:apoapsis > 80000 {
