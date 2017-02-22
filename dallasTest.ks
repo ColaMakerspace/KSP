@@ -52,7 +52,7 @@ until ship:apoapsis > 65000 {
     wait 1.
 }
 
-print "Turning wicked hard.".
+print "Turning due East.".
 lock steering to HEADING(90, 0).
 
 print " ".
@@ -64,7 +64,18 @@ until ship:obt:apoapsis > 80000 {
 print "Apoapsis of " + ROUND(ship:obt:apoapsis) + " detected.".
 print "Throttling down main engine.".
 lock throttle to 0.
+wait 1.
 
+print "Physics warping to space...".
+set kuniverse:timewarp:mode to "PHYSICS".
+set kuniverse:timewarp:warp to 3.
+until ship:altitude > 70000 {
+    wait 0.5.
+}
+set kuniverse:timewarp:warp to 0.
+wait 1.
+print "Warping to near apoapsis...".
+kuniverse:timewarp:warpto(time:seconds + (ETA:APOAPSIS - 20)).
 print "Waiting until near apoapsis...".
 until ETA:APOAPSIS < 10 {
     wait 1.
